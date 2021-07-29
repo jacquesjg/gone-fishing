@@ -29,7 +29,7 @@ function randomValue() {
 
 ///==========================
 // format value
-var formatter = new Intl.NumberFormat('en-US', {
+let formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
   });
@@ -59,9 +59,8 @@ function randomFish() {
 }
 
 
-
+///==========================
 // time convert
-
 function timeConvert(n) {
     const num = n;
     const hours = (num / 60);
@@ -71,9 +70,19 @@ function timeConvert(n) {
     return rhours + " hour(s) and " + rminutes + " minute(s).";
     }
     
+///==========================
+// let user exit game / break loop
+let gameover = 0;
+
 
 ///==========================
-// infinite loop // could need while loop
-
-
-    const n = prompt('What would you like to do?')
+//  while loop
+    while (gameover === 0) {
+        let userInput = prompt("You've gone fishing! Try to maximize the value of your caught fish. You can fish for six hours (till 12:00pm) and can catch at most 10 lbs of fish ===================================== The time is 6:00am. So far you've caught: 0 fish, 0 lbs, $0.00");
+            if (userInput === 'exit'){
+                gameover += 1
+            }
+        }
+       if (gameover === 1) {
+        console.log('Game Over!')
+    }
